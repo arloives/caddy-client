@@ -1,0 +1,51 @@
+{
+  "name": "@arloives/caddy-client",
+  "version": "0.1.0",
+  "description": "A small, unofficial TypeScript client for Caddy's admin API",
+  "type": "module",
+  "license": "MIT",
+  "author": "arloives",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arloives/caddy-client.git"
+  },
+  "homepage": "https://github.com/arloives/caddy-client#readme",
+  "bugs": {
+    "url": "https://github.com/arloives/caddy-client/issues"
+  },
+  "keywords": [
+    "caddy",
+    "admin-api",
+    "typescript",
+    "http-client"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --test test/client.test.mjs",
+    "test:integration": "npm run build && node --test test/integration.test.mjs",
+    "test:package": "node scripts/test-package.mjs",
+    "check": "npm run typecheck && npm test && npm run test:package",
+    "prepare": "npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.4",
+    "typescript": "^5.9.3"
+  }
+}
